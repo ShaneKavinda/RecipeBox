@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'search/index'
+  get 'search', to: 'search#index'
   resources :ingredients
   resources :recipes
   resources :users
