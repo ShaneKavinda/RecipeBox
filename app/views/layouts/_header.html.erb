@@ -47,7 +47,7 @@
           <%= link_to "My Account", userhome_path, class:"dropdown-item" %>
           <%= link_to "My Recipes", your_recipes_path, class:"dropdown-item" %>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Add New Recipe</a></li>
+          <%= link_to "Add New Recipe", new_recipe_path, class:"dropdown-item"%>
           </ul>
         </li>
         <% end %>

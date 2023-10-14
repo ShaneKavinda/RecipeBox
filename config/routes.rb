@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/userhome', to: 'home#uindex'
   get '/your-recipes', to: 'home#urecipes'
 
+
   #get 'about/index'
   #get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

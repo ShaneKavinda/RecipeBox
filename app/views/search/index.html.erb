@@ -15,16 +15,16 @@ part of the code that follows will be executed -->
 found as indicated by @recipematch.present? returning either true of false; if true, 
 execute the if block of code, and if false, execute the else block of code -->
  <% if @recipematch.present? %>
- <h4 style="padding-top: 15px;">Results:</h4>
-<!-- Cycle through each recipe returned and print its title, description and link 
-to the view -->
- <% @recipematch.each do |recipe| %>
- <h5 class="text-primary"><%= recipe.title %></h5>
- <p><%= recipe.description %> [<a href="/recipes/<%= recipe.id %>">Read full 
-recipe</a>]</p>
- <br />
- <% end %>
+    <h4 style="padding-top: 15px;">Results:</h4>
+    <!-- Cycle through each recipe returned and print its title, description and link 
+    to the view -->
+    <% @recipematch.each do |recipe| %>
+        <h5 class="text-primary"><%= recipe.title %></h5>
+        <p><%= recipe.description %> [<a href="/recipes/<%= recipe.id %>">Read full 
+        recipe</a>]</p>
+        <br />
+    <% end %>
  <% else %>
- <p>No matching recipes found.</p>
+    <p>No matching recipes found.</p>
  <% end %>
 <% end %>

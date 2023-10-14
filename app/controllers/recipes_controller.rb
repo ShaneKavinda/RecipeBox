@@ -1,9 +1,11 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
+  before_action :require_login, except: [:index, :show]
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    # @recipes = Recipe.all
+    @recipes = current_user.recipes
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -13,6 +15,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    8.times { @recipe.recipe_ingredients.build }  # Give the form eight (8) recipe ingr/qty fields which will be enough for the purposes of our prototype
   end
 
   # GET /recipes/1/edit
@@ -65,6 +68,7 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:title, :description, :instructions, :is_public, :user_id)
+      params.require(:recipe).permit(:title, :description, :instructions, :is_public, :user_id, 
+        recipe_ingredients_attributes: [:id, :ingr_qty, :ingredient_id])
     end
 end
