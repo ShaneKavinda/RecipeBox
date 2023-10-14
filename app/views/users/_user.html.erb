@@ -1,27 +1,39 @@
-<div id="<%= dom_id user %>">
- <p>
- <strong>Fname:</strong>
- <%= user.fname %>
- </p>
- <p>
- <strong>Lname:</strong>
- <%= user.lname %>
- </p>
- <p>
- <strong>Email:</strong>
- <%= user.email %>
- </p>
- <p>
- <strong>Current Password: </strong><span class="text-danger">ENCRYPTED</span>
-<!-- Remove the equal sign from the line below or remove the line completely --> 
-<% user.password_digest %>
- </p>
- <p>
- <strong>Is admin:</strong>
- <%= user.is_admin %>
- </p>
- <p>
- <strong>Status:</strong>
- <%= user.status %>
- </p>
+<div id="<%= dom_id user %>" class="my-4">
+  
+  <div class="mb-3">
+    <label class="form-label"><strong>Fname:</strong></label>
+    <div><%= user.fname %></div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"><strong>Lname:</strong></label>
+    <div><%= user.lname %></div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"><strong>Email:</strong></label>
+    <div><%= user.email %></div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"><strong>Current Password:</strong></label>
+    <span class="text-danger">ENCRYPTED</span>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"><strong>Account Type:</strong></label>
+    <div>
+      <% if user.is_admin %>
+        <span>Administrator</span>
+      <% else %>
+        <span>Standard User</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"><strong>Status:</strong></label>
+    <div><%= user.status %></div>
+  </div>
+
 </div>
